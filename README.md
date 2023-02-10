@@ -1,4 +1,4 @@
-# vizcode
+# CodeViz-Planner
 A tool to help developers visually plan codebase structures
 
 [![](https://img.shields.io/badge/License-Apache_2.0-pink.svg)](./LICENSE)
