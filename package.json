@@ -1,0 +1,48 @@
+{
+    "name": "codevizplanner",
+    "version": "0.0.1",
+    "description": "A tool to help developers visually plan codebase structures",
+    "main": "codeviz.cjs.js",
+    "engines": {
+        "node": ">= 16 <20"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sarahtang7/CodeViz-Planner.git"
+    },
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Sarah Tang",
+        "email": "sarah.tang@columbia.edu"
+    },
+    "scripts": {
+        "start": "node build/src/main.js",
+        "clean": "rimraf coverage build tmp",
+        "build": "tsc -p tsconfig.json",
+        "build:watch": "tsc -w -p tsconfig.json",
+        "build:release": "npm run clean && tsc -p tsconfig.release.json",
+        "lint": "eslint . --ext .ts --ext .mts",
+        "test": "jest --coverage",
+        "prettier": "prettier --config .prettierrc --write .",
+        "test:watch": "jest --watch"
+    },
+    "dependencies": {
+        "canvas": "^2.11.0",
+        "node-canvas-api": "^1.7.3",
+        "open": "^8.4.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.2",
+        "@types/node": "^18",
+        "@typescript-eslint/eslint-plugin": "^5.44",
+        "@typescript-eslint/parser": "^5.44",
+        "eslint": "^8.28",
+        "eslint-config-prettier": "^8.5",
+        "eslint-plugin-jest": "^27.1",
+        "jest": "^29.3",
+        "prettier": "^2.8",
+        "rimraf": "^3.0",
+        "ts-jest": "~29.0",
+        "typescript": "~4.9"
+    }
+}
