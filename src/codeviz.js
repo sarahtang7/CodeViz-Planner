@@ -1,4 +1,5 @@
-//const { imp_canvas } = require('canvas');
+let circleCount = 0;
+let circlePositions = [];
 
 // open canvas in default browser
 const { exec } = require('child_process');
@@ -39,13 +40,21 @@ function moveCircle(e) {
       canvas.style.cursor = 'default';
     }
 
+    // update the position of the circle
+    circlePositions.splice(circleCount, 0, { x: circleX, y: circleY });
+
     // if previous circle was moved, add a new circle
     if (Math.abs(circleX - 200) > 10 || Math.abs(circleY - 200) > 10) {
       const newCircleX = 200;
       const newCircleY = 200;
       const newCircleRadius = 50;
       const newCircleFill = 'red';
+
       drawCircle(newCircleX, newCircleY, newCircleRadius, newCircleFill);
+      circleCount++;
+
+      // add the position of the new circle
+      circlePositions.push({ x: newCircleX, y: newCircleX });
     }
 }
 
@@ -76,6 +85,7 @@ canvas.addEventListener('mousedown', function(e) {
 
 canvas.addEventListener('mouseup', function() {
   canvas.removeEventListener('mousemove', resizeCircle);
+  canvas.removeEventListener('mousemove', moveCircle);
 });
 
 drawCircle();
